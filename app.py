@@ -80,39 +80,6 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "MNIST_Model.pth")
 model.load_state_dict(torch.load(MODEL_PATH))
 model.eval()
 
-
-# # Test evaluating the model
-# from helper_functions import eval_model
-# from torchmetrics import Accuracy
-# from torchvision import datasets
-# from torch.utils.data import DataLoader
-
-# BATCH_SIZE = 32
-# # Download and transform test data
-# test_data = datasets.MNIST(
-#     root="data",
-#     train= False,
-#     transform= transforms.ToTensor(),
-#     download= True
-# )
-# test_dataloader = DataLoader(test_data,
-#                             batch_size = BATCH_SIZE,
-#                             shuffle = False,
-# )
-
-# acc_metric = Accuracy(task="multiclass", num_classes=10)
-# loss_fn = nn.CrossEntropyLoss()
-# optm = torch.optim.SGD(params= model.parameters(),
-#                     lr = 0.1)
-
-# number_model_results = eval_model(model=model, 
-#                             data_loader=test_dataloader,
-#                             loss_fn=loss_fn, 
-#                             accuracy_fn=acc_metric
-# )
-
-# print(number_model_results)
-
 # Define pre-processing
 transform = transforms.Compose([
     transforms.Resize((28,28)),
@@ -122,6 +89,11 @@ transform = transforms.Compose([
 ])
 
 def Preprocessing_input(pil_img):
+    # Ensure 'static' directory exists
+    static_dir = "static"
+    if not os.path.exists(static_dir):
+        os.makedirs(static_dir)
+        
     # Convert to grayscale
     img = pil_img.convert('L')
     
@@ -133,7 +105,7 @@ def Preprocessing_input(pil_img):
     
     # Save as preview
     img.save(os.path.join("static", "received_input.png"))
-    print("Image saved at:", os.path.abspath("static/received_input.png"))
+    print("Image saved at:", os.path.abspath("static\\received_input.png"))
 
     
     tensor_img = transform(img).unsqueeze(0)  # shape: [1, 1, 28, 28]
@@ -160,13 +132,16 @@ def predict():
         return jsonify({'prediction': 'blank input'})
     
     with torch.inference_mode():
-        outputs = model(img_tensor)
-        _, prediction = torch.max(outputs.data, 1)
+        logits = model(img_tensor)
+        probabilities = torch.softmax(logits, dim=1)
+        predicted_class = torch.argmax(probabilities, dim=1).item()
         
-    return jsonify({"Predicted" : int(prediction)})
+    return jsonify({
+        "Predicted" : int(predicted_class),
+        "Probabilities": probabilities.squeeze().tolist()  # convert tensor to list
+        })
         
         
         
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # default to 5000 for local use
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug = True)
