@@ -3,7 +3,8 @@
 This is a simple and interactive web application where you can **draw a digit (0–9)** using your mouse, and a **PyTorch-based neural network** will predict what digit you drew.
 
 The model was trained on the **MNIST dataset** as well as additional **custom handwritten digit data** to improve real-world accuracy and generalization.
-
+![alt text](image-1.png)
+![alt text](image.png)
 ## 🚀 Features
 
 - Canvas for drawing digits
