@@ -5,7 +5,7 @@ from torchvision import transforms
 from PIL import Image, ImageOps
 import os, time
 
-from helpers import build_model, Preprocessing_input, REtrain_model
+from utils.helpers import build_model, Preprocessing_input, REtrain_model
 
 app = Flask(__name__)
 
