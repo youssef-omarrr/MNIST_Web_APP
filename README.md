@@ -12,6 +12,7 @@ The model was trained on the **MNIST dataset** as well as additional **custom ha
 - Visual display of class probabilities
 - Backend powered by Flask
 - Real-time input preview and prediction feedback
+- [NEW] added feedback system to learn different handwritings.
 
 ---
 
@@ -105,6 +106,5 @@ You can modify or retrain the model in the `train_model.py` (if provided) with y
 ## 🛠️ To Do / Future Work
 
 * Deploy a flask hosting server
-* Add reinforcment learning to the model
 
 ---
