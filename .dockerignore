@@ -1,4 +1,21 @@
-__pycache__/
-*.pyc
-.venv/
-.git
+# Python virtual environment and bytecode
+.venv/                # Exclude virtual environment
+__pycache__/          # Python cache
+*.pyc                 # Compiled bytecode
+*.pyo
+*.pyd
+
+# Git and version control
+.git                  # Git folder
+.gitignore            # Ignore git config (optional, can be useful to keep)
+
+# System/UI clutter (Windows)
+desktop.ini
+folderico-favorites.ico
+
+# Unused assets or local-only folders
+img/                  # Exclude local image assets (if not needed in container)
+
+# Documentation and deployment
+*.md                  # Markdown docs
+Procfile              # For Heroku, not usually needed in Docker

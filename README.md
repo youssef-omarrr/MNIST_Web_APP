@@ -14,57 +14,91 @@ The model was trained on the **MNIST dataset** as well as additional **custom ha
 - Visual display of class probabilities
 - Backend powered by Flask
 - Real-time input preview and prediction feedback
-- [NEW] added feedback system to learn different handwritings.
+- [NEW ✅] added feedback system to learn different handwritings.
+- [NEW ✅] **Docker support: Dockerfile pushed and ready to use**
 
 ---
 
-## 📦 Installation & Running Locally
+## 📦 Installation & Running the Project
 
-### 1. Clone the repository
+You can run this project using **either a Python virtual environment** or **Docker**, depending on your setup and preference.
+
+---
+
+### 🔧 Option 1: Run Locally with Python Virtual Environment
+
+#### 1. Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/mnist-drawing-classifier.git
 cd mnist-drawing-classifier
 ````
 
-### 2. Set up a Python virtual environment
-
-```bash
-python -m venv venv
-```
-
-### 3. Activate the virtual environment
+#### 2. Create and activate a virtual environment
 
 * **Windows:**
 
   ```bash
+  python -m venv venv
   venv\Scripts\activate
   ```
 
 * **macOS/Linux:**
 
   ```bash
+  python3 -m venv venv
   source venv/bin/activate
   ```
 
-### 4. Install dependencies
+#### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> ✅ Note: This project uses the **CPU-only version** of PyTorch to reduce system requirements.
-
-### 5. Run the Flask app
+#### 4. Run the Flask app
 
 ```bash
 python app.py
 ```
 
-Now, open your browser and go to:
+Open your browser and go to:
 📍 **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
 
 ---
+
+### 🐳 Option 2: Run with Docker
+
+Make sure Docker is installed and running on your machine.
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/mnist-drawing-classifier.git
+cd mnist-drawing-classifier
+```
+
+#### 2. Build the Docker image
+
+```bash
+docker build -t flask-app .
+```
+
+#### 3. Run the Docker container
+
+```bash
+docker run -p 5000:5000 flask-app
+```
+
+Open your browser and go to:
+📍 **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
+
+
+> Choose the method that best fits your environment. Both options will give you access to the full functionality of the app.
+
+
+---
+
 
 ## 🧠 Model Training
 
