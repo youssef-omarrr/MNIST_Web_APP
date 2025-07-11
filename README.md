@@ -97,9 +97,9 @@ You can modify or retrain the model in the `train_model.py` (if provided) with y
 
 ## 📌 Requirements
 
-* Python 3.7+
+* Python 
 * Flask
-* Torch (CPU-only)
+* Torch
 * Torchvision
 * Pillow
 
