@@ -1,4 +1,4 @@
-# 🧠 MNIST Drawing Classifier (Flask Web App)
+# 🔢 MNIST Drawing Classifier (Flask Web App)
 
 This is a simple and interactive web application where you can **draw a digit (0–9)** using your mouse, and a **PyTorch-based neural network** will predict what digit you drew.
 
@@ -7,7 +7,7 @@ The model was trained on the **MNIST dataset** as well as additional **custom ha
 ![alt text](img/pred.png)
 ### NEW
 ![alt text](img/kepad.png)
-## 🚀 Features
+##  Features
 
 - Canvas for drawing digits
 - Live prediction using a trained PyTorch model
@@ -19,13 +19,13 @@ The model was trained on the **MNIST dataset** as well as additional **custom ha
 
 ---
 
-## 📦 Installation & Running the Project
+##  Installation & Running the Project
 
 You can run this project using **either a Python virtual environment** or **Docker**, depending on your setup and preference.
 
 ---
 
-### 🔧 Option 1: Run Locally with Python Virtual Environment
+###  Option 1: Run Locally with Python Virtual Environment
 
 #### 1. Clone the repository
 
@@ -100,7 +100,7 @@ Open your browser and go to:
 ---
 
 
-## 🧠 Model Training
+##  Model Training
 
 * The digit classification model is built with **PyTorch**.
 * It was trained on:
@@ -112,7 +112,7 @@ You can modify or retrain the model in the `train_model.py` (if provided) with y
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ├── static/
@@ -129,7 +129,7 @@ You can modify or retrain the model in the `train_model.py` (if provided) with y
 
 ---
 
-## 📌 Requirements
+##  Requirements
 
 * Python 
 * Flask
@@ -139,7 +139,7 @@ You can modify or retrain the model in the `train_model.py` (if provided) with y
 
 ---
 
-## 🛠️ To Do / Future Work
+##  To Do / Future Work
 
 * Deploy a flask hosting server
 
